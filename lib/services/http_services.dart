@@ -9,9 +9,9 @@ class Network {
 
   /* Http Apis */
 
-  static String API_LIST = "/employees";
+  static String API_LIST = "/api/v1/employees";
   static String API_LIST2 = "/employees";//{id}
-  static String API_CREATE = "/create";
+  static String API_CREATE = "/api/v1/create";
   static String API_UPDATE = "/update"; //{id}
   static String API_DELETE = "/delete"; //{id}
 
@@ -65,6 +65,10 @@ class Network {
     Map<String, String> params = new Map();
     params.addAll({
 
+      'name' : post.name,
+      'salary' : post.salary.toString(),
+      'age' : post.age.toString(),
+
     });
     return params;
   }
@@ -72,9 +76,15 @@ class Network {
   static Map<String, String> paramsUpdate(Post post) {
     Map<String, String> params = new Map();
     params.addAll({
-
+      'id' : post.id.toString(),
+      'name' : post.name,
+      'salary' : post.salary.toString(),
+      'age' : post.age.toString(),
     });
     return params;
   }
+
+
+
 
 }

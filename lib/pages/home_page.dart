@@ -12,10 +12,19 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   String date;
+
+
   void _apiPostList(){
     Network.GET(Network.API_LIST, Network.paramsEmpty()).then((response) => {
       print(response),
   _showResponse(response),
+    });
+  }
+
+  void _apiPostGet(){
+    Network.GET(Network.API_LIST2, Network.paramsEmpty()).then((response) => {
+      print(response),
+      _showResponse(response),
     });
   }
   void _apiCreatePost(Post post){
@@ -48,8 +57,12 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-   // var post=new Post(id:1,title: "pdp", body: "online",userId: 1);
-    _apiPostList();
+
+    var post=new Post(name: "Test",salary: 123,age: 23);
+    _apiCreatePost(post);
+
+
+   // _apiPostList();
 
   }
   @override

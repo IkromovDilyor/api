@@ -2,6 +2,7 @@
     package="com.example.network">
     <uses-permission android:name="android.permission.INTERNET"/>
    <application
+       android:usesCleartextTraffic="true"
         android:label="network"
         android:icon="@mipmap/ic_launcher">
 

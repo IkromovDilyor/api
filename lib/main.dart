@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:network/pages/detail_page.dart';
 import 'package:network/pages/home_page.dart';
 
 void main() {
@@ -16,6 +17,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: HomePage(),
+      routes: {
+        HomePage.id:(context)=>HomePage(),
+        DetailPage.id:(context)=>DetailPage(),
+
+      },
     );
   }
 }

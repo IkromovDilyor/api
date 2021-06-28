@@ -1,6 +1,8 @@
 import 'dart:convert';
 
 import 'package:http/http.dart';
+import 'package:network/model/emp_listmodel.dart';
+import 'package:network/model/empone_model.dart';
 import 'package:network/model/post_model.dart';
 
 class Network {
@@ -10,10 +12,10 @@ class Network {
   /* Http Apis */
 
   static String API_LIST = "/api/v1/employees";
-  static String API_LIST2 = "/employees";//{id}
+  static String API_LIST2 = "/api/v1/employee/1";//{id}
   static String API_CREATE = "/api/v1/create";
-  static String API_UPDATE = "/update"; //{id}
-  static String API_DELETE = "/delete"; //{id}
+  static String API_UPDATE = "/api/v1/update"; //{id}
+  static String API_DELETE = "/api/v1/delete"; //{id}
 
   /* Http Requests */
 
@@ -83,8 +85,17 @@ class Network {
     });
     return params;
   }
-
-
+// *  HTTP PARSING
+static EmpList parseEmpList(String response){
+    dynamic json=jsonDecode(response);
+    var data=EmpList.fromJson(json);
+    return data;
+}
+  static EmpOne parseEmpOne(String body){
+    dynamic json = jsonDecode(body);
+    var data = EmpOne.fromJson(json);
+    return data;
+  }
 
 
 }
